@@ -1,0 +1,30 @@
+body {
+    background: #009688
+}
+
+#heading {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    font-size: 35px;
+    color: whitesmoke;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#settings {
+    text-align: left;
+    color: whitesmoke;
+    font-size: 18px;
+    margin-left: 25%;
+    color: #EF9A9A;
+}
+
+#settings:hover {
+    color: #4DD0E1;
+}
+
+#gamebox {
+    text-align: center;
+    align-self: center;
+}
