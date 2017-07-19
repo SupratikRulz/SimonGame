@@ -15,7 +15,7 @@ document.getElementById("on-off").addEventListener("click", function() {
     } else {
         gamebox.style.display = 'block';
         on_off = true;
-        restart();
+        setTimeout(restart, 1000);
     }
     console.log("On Off status: " + on_off);
 });
@@ -32,10 +32,18 @@ function flashAllButton() {
 
     setTimeout(function() {
         document.getElementById("btn-green").style.background = "#4BAE4F";
+    }, 700);
+
+    setTimeout(function() {
         document.getElementById("btn-red").style.background = "#F34236";
-        document.getElementById("btn-yellow").style.background = "#FEC007";
+    }, 1400);
+    setTimeout(function() {
         document.getElementById("btn-blue").style.background = "#3E50B4";
-    }, 100);
+    }, 2100);
+    setTimeout(function() {
+        document.getElementById("btn-yellow").style.background = "#FEC007";
+    }, 2800);
+
 }
 
 function getRandomInt(min, max) {
@@ -57,6 +65,21 @@ function restart() {
 
 function flashParticularButton(btn) {
     document.getElementById(btn).style.opacity = 0.2;
+    switch (btn) {
+        case "btn-green":
+            var x = document.getElementById("sGreen");
+            x.play();
+            break;
+        case "btn-red":
+            var x = document.getElementById("sRed");
+            x.play();
+        case "btn-yellow":
+            var x = document.getElementById("sYellow");
+            x.play();
+        case "btn-blue":
+            var x = document.getElementById("sRed");
+            x.play();
+    }
     setTimeout(function() {
         document.getElementById(btn).style.opacity = 1;
     }, 800);
@@ -65,6 +88,16 @@ function flashParticularButton(btn) {
 function playSequence() {
     document.getElementById("result").innerHTML = "Watch Out!";
     console.log("playing sequnce");
+    document.getElementById("btn-green").disabled = true;
+    document.getElementById("btn-red").disabled = true;
+    document.getElementById("btn-yellow").disabled = true;
+    document.getElementById("btn-blue").disabled = true;
+    setTimeout(function() {
+        document.getElementById("btn-green").disabled = false;
+        document.getElementById("btn-red").disabled = false;
+        document.getElementById("btn-yellow").disabled = false;
+        document.getElementById("btn-blue").disabled = false;
+    }, compQuestion.length * 1000 + 1000);
     var i = 0;
     var sequence = setInterval(function() {
         flashParticularButton(compQuestion[i]);
@@ -81,10 +114,13 @@ function playSequence() {
 document.getElementById("start").addEventListener("click", function() {
     restart();
     counter = 1;
-    document.getElementById("counter").innerHTML = counter;
+    document.getElementById("counter").innerHTML = "...";
+    setTimeout(function() {
+        document.getElementById("counter").innerHTML = counter;
+    }, 2900);
     var integerRandom = getRandomInt(0, 4);
     compQuestion.push(btnIdArray[integerRandom]);
-    playSequence();
+    setTimeout(playSequence, 3000);
     console.log("computer: " + compQuestion);
 });
 
@@ -105,6 +141,21 @@ function nextLevel() {
 }
 
 function buttonClick(btn) {
+    switch (btn) {
+        case "btn-green":
+            var x = document.getElementById("sGreen");
+            x.play();
+            break;
+        case "btn-red":
+            var x = document.getElementById("sRed");
+            x.play();
+        case "btn-yellow":
+            var x = document.getElementById("sYellow");
+            x.play();
+        case "btn-blue":
+            var x = document.getElementById("sRed");
+            x.play();
+    }
     flashParticularButton(btn);
     userAnswer.push(btn);
     if (compQuestion[userCounter] === userAnswer[userCounter]) {
