@@ -10,11 +10,25 @@ button:focus {
     outline: none;
 }
 
+button {
+    outline: none;
+}
+
 #heading {
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
     font-size: 35px;
+    color: whitesmoke;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#result {
+    position: relative;
+    padding-top: 40%;
+    text-align: center;
+    font-size: 25px;
     color: whitesmoke;
     font-style: italic;
     font-family: Arial, Helvetica, sans-serif;
@@ -125,11 +139,11 @@ button:focus {
 }
 
 #power-btn {
-    padding-top: 30%;
+    padding-top: 10%;
 }
 
-#stict {
-    padding-top: 30%;
+#strict-mode {
+    padding-top: 10%;
 }
 
 

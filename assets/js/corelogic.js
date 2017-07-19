@@ -18,7 +18,10 @@ document.getElementById("on-off").addEventListener("click", function() {
         restart();
     }
     console.log("On Off status: " + on_off);
+});
 
+document.getElementById("strict").addEventListener("click", function() {
+    strict = document.getElementById("strict").checked;
 });
 
 function flashAllButton() {
@@ -39,7 +42,6 @@ function getRandomInt(min, max) {
     return Math.floor((Math.random() * max) + min);
 }
 
-
 function restart() {
     start = false;
     on_off = true;
@@ -54,13 +56,14 @@ function restart() {
 }
 
 function flashParticularButton(btn) {
-    document.getElementById(btn).style.opacity = 0.6;
+    document.getElementById(btn).style.opacity = 0.2;
     setTimeout(function() {
         document.getElementById(btn).style.opacity = 1;
-    }, 600);
+    }, 800);
 }
 
 function playSequence() {
+    document.getElementById("result").innerHTML = "Watch Out!";
     console.log("playing sequnce");
     var i = 0;
     var sequence = setInterval(function() {
@@ -68,8 +71,11 @@ function playSequence() {
         i++;
         if (i >= compQuestion.length) {
             clearInterval(sequence);
+            setTimeout(function() {
+                document.getElementById("result").innerHTML = "Here you go!";
+            }, 1000);
         }
-    }, 800);
+    }, 1000);
 }
 
 document.getElementById("start").addEventListener("click", function() {
@@ -104,19 +110,28 @@ function buttonClick(btn) {
     if (compQuestion[userCounter] === userAnswer[userCounter]) {
         console.log(compQuestion[userCounter] === userAnswer[userCounter]);
         userCounter++;
+        document.getElementById("result").innerHTML = "Wow Correct!";
         if (userAnswer.length === compQuestion.length) {
-            nextLevel();
+            document.getElementById("result").innerHTML = "You are awesome! Next Level!";
+            setTimeout(function() {
+                nextLevel();
+            }, 1000);
         }
     } else {
         if (strict) {
-            alert("Wrong! Starting from beginning");
+            document.getElementById("result").innerHTML = "Opps! Start from the beginning!";
             restart();
+            counter = 1;
+            document.getElementById("counter").innerHTML = counter;
+            var integerRandom = getRandomInt(0, 4);
+            compQuestion.push(btnIdArray[integerRandom]);
+            playSequence();
+            console.log("computer: " + compQuestion);
         } else {
-
             userAnswer = [];
             userCounter = 0;
-            alert("Wrong! Watch Closely!");
-            playSequence();
+            document.getElementById("result").innerHTML = "Wrong! Watch Closely";
+            setTimeout(playSequence, 2000);
         }
     }
 }
