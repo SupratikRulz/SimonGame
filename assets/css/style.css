@@ -132,6 +132,27 @@ button {
     color: whitesmoke;
     font-size: 80px;
     text-shadow: 0 1px 1px #ffffff;
+    pointer-events: none;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+#counter-dis {
+    pointer-events: none;
 }
 
 #start {

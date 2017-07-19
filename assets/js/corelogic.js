@@ -12,9 +12,11 @@ document.getElementById("on-off").addEventListener("click", function() {
     if (gamebox.style.display === 'block') {
         gamebox.style.display = 'none';
         on_off = false;
+        document.getElementById("result").innerHTML = "Welcome! Press on PLAY button to start!";
     } else {
         gamebox.style.display = 'block';
         on_off = true;
+        document.getElementById("result").innerHTML = "Welcome! Press on PLAY button to start!";
         setTimeout(restart, 1000);
     }
     console.log("On Off status: " + on_off);
@@ -43,6 +45,12 @@ function flashAllButton() {
     setTimeout(function() {
         document.getElementById("btn-yellow").style.background = "#FEC007";
     }, 2800);
+    setTimeout(function() {
+        document.getElementById("btn-green").disabled = true;
+        document.getElementById("btn-red").disabled = true;
+        document.getElementById("btn-yellow").disabled = true;
+        document.getElementById("btn-blue").disabled = true;
+    }, 2900);
 
 }
 
@@ -51,6 +59,10 @@ function getRandomInt(min, max) {
 }
 
 function restart() {
+    document.getElementById("btn-green").disabled = true;
+    document.getElementById("btn-red").disabled = true;
+    document.getElementById("btn-yellow").disabled = true;
+    document.getElementById("btn-blue").disabled = true;
     start = false;
     on_off = true;
     strict = false;
@@ -112,22 +124,35 @@ function playSequence() {
 }
 
 document.getElementById("start").addEventListener("click", function() {
-    restart();
-    counter = 1;
-    document.getElementById("counter").innerHTML = "...";
-    setTimeout(function() {
-        document.getElementById("counter").innerHTML = counter;
-    }, 2900);
-    var integerRandom = getRandomInt(0, 4);
-    compQuestion.push(btnIdArray[integerRandom]);
-    setTimeout(playSequence, 3000);
-    console.log("computer: " + compQuestion);
+    if (on_off) {
+        document.getElementById("result").innerHTML = "Welcome! Press on PLAY button to start!";
+        restart();
+        counter = 1;
+        document.getElementById("counter").innerHTML = "...";
+        setTimeout(function() {
+            document.getElementById("counter").innerHTML = counter;
+            var integerRandom = getRandomInt(0, 4);
+            compQuestion.push(btnIdArray[integerRandom]);
+            setTimeout(playSequence, 3000);
+            console.log("computer: " + compQuestion);
+        }, 2900);
+    }
+
 });
 
 function nextLevel() {
     if (counter === 20) {
-        alert("You WON!");
         restart();
+        counter = 1;
+        document.getElementById("counter").innerHTML = "WON";
+        document.getElementById("result").innerHTML = "Congrats! You Won!";
+        setTimeout(function() {
+            document.getElementById("counter").innerHTML = counter;
+            var integerRandom = getRandomInt(0, 4);
+            compQuestion.push(btnIdArray[integerRandom]);
+            setTimeout(playSequence, 3000);
+            console.log("computer: " + compQuestion);
+        }, 2900);
     } else {
         counter++;
         userCounter = 0;
@@ -169,6 +194,10 @@ function buttonClick(btn) {
             }, 1000);
         }
     } else {
+        setTimeout(function() {
+            var x = document.getElementById("sWrong");
+            x.play();
+        }, 1000);
         if (strict) {
             document.getElementById("result").innerHTML = "Opps! Start from the beginning!";
             setTimeout(restart, 2000);
@@ -181,7 +210,7 @@ function buttonClick(btn) {
                 strict = true;
                 playSequence();
                 console.log("computer: " + compQuestion);
-            }, 2001);
+            }, 4001);
         } else {
             userAnswer = [];
             userCounter = 0;
