@@ -1,5 +1,13 @@
 body {
-    background: #009688
+    background: #212121;
+}
+
+p {
+    color: #1abc9c;
+}
+
+button:focus {
+    outline: none;
 }
 
 #heading {
@@ -13,18 +21,185 @@ body {
 }
 
 #settings {
-    text-align: left;
-    color: whitesmoke;
-    font-size: 18px;
-    margin-left: 25%;
-    color: #EF9A9A;
+    margin-right: 10%;
+    float: right;
+    padding-left: 5%;
+    border: 1px solid greenyellow;
+    padding-right: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
-#settings:hover {
-    color: #4DD0E1;
+#setting-head {
+    position: relative;
+    text-align: center;
+    font-size: 25px;
+    color: #e74c3c;
 }
 
 #gamebox {
+    display: none;
+    padding-left: 35%;
+    float: left;
+    align-content: center;
     text-align: center;
     align-self: center;
 }
+
+#btn-green {
+    color: #4BAE4F;
+    background-color: #4BAE4F;
+    border-top-left-radius: 100%;
+}
+
+#btn-green:hover {
+    background-color: #8AC249;
+}
+
+#btn-red {
+    color: #F34236;
+    background-color: #F34236;
+    border-top-right-radius: 100%;
+}
+
+#btn-red:hover {
+    background-color: #FE5622;
+}
+
+#btn-yellow {
+    color: #FEC007;
+    background-color: #FEC007;
+    border-bottom-left-radius: 100%;
+}
+
+#btn-yellow:hover {
+    background-color: #FEEA3B;
+}
+
+#btn-blue {
+    color: #3E50B4;
+    background-color: #3E50B4;
+    border-bottom-right-radius: 100%;
+}
+
+#btn-blue:hover {
+    background-color: #03A8F3;
+}
+
+.btn {
+    margin: 0px;
+    border: 8px solid #212121;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+}
+
+#center-box {
+    position: relative;
+    left: 50%;
+    top: 50%;
+    margin-left: -100px;
+    margin-top: -304px;
+    width: 200px;
+    height: 200px;
+    background-color: #212121;
+    border-radius: 100%;
+}
+
+#img-power {
+    padding-top: 25px;
+}
+
+#counter {
+    padding-top: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    text-align: center;
+    color: whitesmoke;
+    font-size: 80px;
+    text-shadow: 0 1px 1px #ffffff;
+}
+
+#start {
+    padding-top: 30%;
+}
+
+#power-btn {
+    padding-top: 30%;
+}
+
+#stict {
+    padding-top: 30%;
+}
+
+
+/*************************W3-Schools*************************************/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+
+/* Hide default HTML checkbox */
+
+.switch input {
+    display: none;
+}
+
+
+/* The slider */
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 1px;
+    bottom: 1px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
+
+
+/* Rounded sliders */
+
+.slider.round {
+    border-radius: 20px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+/*************************************************************************/
