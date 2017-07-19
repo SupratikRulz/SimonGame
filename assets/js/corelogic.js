@@ -120,13 +120,17 @@ function buttonClick(btn) {
     } else {
         if (strict) {
             document.getElementById("result").innerHTML = "Opps! Start from the beginning!";
-            restart();
-            counter = 1;
-            document.getElementById("counter").innerHTML = counter;
-            var integerRandom = getRandomInt(0, 4);
-            compQuestion.push(btnIdArray[integerRandom]);
-            playSequence();
-            console.log("computer: " + compQuestion);
+            setTimeout(restart, 2000);
+            setTimeout(function() {
+                counter = 1;
+                document.getElementById("counter").innerHTML = counter;
+                var integerRandom = getRandomInt(0, 4);
+                compQuestion.push(btnIdArray[integerRandom]);
+                document.getElementById("strict").checked = true;
+                strict = true;
+                playSequence();
+                console.log("computer: " + compQuestion);
+            }, 2001);
         } else {
             userAnswer = [];
             userCounter = 0;
