@@ -5,6 +5,7 @@ var start = false;
 var on_off = false;
 var strict = false;
 var counter = 0;
+var userCounter = 0;
 
 document.getElementById("on-off").addEventListener("click", function() {
     var gamebox = document.getElementById('gamebox');
@@ -45,6 +46,7 @@ function restart() {
     strict = false;
     document.getElementById("strict").checked = false;
     counter = 0;
+    userCounter = 0;
     document.getElementById("counter").innerHTML = counter;
     compQuestion = new Array();
     userAnswer = new Array();
@@ -78,5 +80,43 @@ document.getElementById("start").addEventListener("click", function() {
     compQuestion.push(btnIdArray[integerRandom]);
     playSequence();
     console.log("computer: " + compQuestion);
-
 });
+
+function nextLevel() {
+    if (counter === 20) {
+        alert("You WON!");
+        restart();
+    } else {
+        counter++;
+        userCounter = 0;
+        userAnswer = [];
+        document.getElementById("counter").innerHTML = counter;
+        var integerRandom = getRandomInt(0, 4);
+        compQuestion.push(btnIdArray[integerRandom]);
+        playSequence();
+        console.log("computer: " + compQuestion);
+    }
+}
+
+function buttonClick(btn) {
+    flashParticularButton(btn);
+    userAnswer.push(btn);
+    if (compQuestion[userCounter] === userAnswer[userCounter]) {
+        console.log(compQuestion[userCounter] === userAnswer[userCounter]);
+        userCounter++;
+        if (userAnswer.length === compQuestion.length) {
+            nextLevel();
+        }
+    } else {
+        if (strict) {
+            alert("Wrong! Starting from beginning");
+            restart();
+        } else {
+
+            userAnswer = [];
+            userCounter = 0;
+            alert("Wrong! Watch Closely!");
+            playSequence();
+        }
+    }
+}
