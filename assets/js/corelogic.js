@@ -1,12 +1,19 @@
-var btnIdArray = ["btn-green", "btn-red", "btn-yellow", "btn-blue"];
-var compQuestion = new Array();
-var userAnswer = new Array();
-var start = false;
-var on_off = false;
-var strict = false;
-var counter = 0;
-var userCounter = 0;
+/**
+ * Copyright Supratik Basu
+ */
 
+var btnIdArray = ["btn-green", "btn-red", "btn-yellow", "btn-blue"]; //array of button ids same as in html
+var compQuestion = new Array(); //initialize auto-generated array
+var userAnswer = new Array(); //initialize user answer array
+var start = false; //game start(play) status
+var on_off = false; //on-off switch status
+var strict = false; //strict switch status
+var counter = 0; //indicates the current stage
+var userCounter = 0; //user current stage
+/**
+ * this function removes display if off switch is pressed 
+ * and turns on with animation and resets the variables
+ */
 document.getElementById("on-off").addEventListener("click", function() {
     var gamebox = document.getElementById('gamebox');
     if (gamebox.style.display === 'block') {
@@ -20,13 +27,17 @@ document.getElementById("on-off").addEventListener("click", function() {
         document.getElementById("result").innerHTML = "Welcome! Press on PLAY button to start!";
         setTimeout(restart, 1000);
     }
-    console.log("On Off status: " + on_off);
+    //console.log("On Off status: " + on_off);
 });
-
+/**this function changes the status of strict variable 
+ * when strict switch is changed
+ */
 document.getElementById("strict").addEventListener("click", function() {
     strict = document.getElementById("strict").checked;
 });
-
+/**
+ * this functon animates all the buttons 
+ */
 function flashAllButton() {
     document.getElementById("btn-green").style.background = "#FEFCD7";
     document.getElementById("btn-red").style.background = "#FEFCD7";
@@ -47,18 +58,18 @@ function flashAllButton() {
         document.getElementById("btn-yellow").style.background = "#FEC007";
     }, 2800);
     setTimeout(function() {
-        document.getElementById("btn-green").disabled = true;
-        document.getElementById("btn-red").disabled = true;
-        document.getElementById("btn-yellow").disabled = true;
-        document.getElementById("btn-blue").disabled = true;
+        document.getElementById("btn-green").disabled = false;
+        document.getElementById("btn-red").disabled = false;
+        document.getElementById("btn-yellow").disabled = false;
+        document.getElementById("btn-blue").disabled = false;
     }, 2900);
 
 }
-
+//this function generates random integer numbers from min <= random_no < max
 function getRandomInt(min, max) {
     return Math.floor((Math.random() * max) + min);
 }
-
+//sets default value and performs an animation
 function restart() {
     document.getElementById("btn-green").disabled = true;
     document.getElementById("btn-red").disabled = true;
@@ -75,32 +86,31 @@ function restart() {
     userAnswer = new Array();
     flashAllButton();
 }
-
+//flashes a particular button
 function flashParticularButton(btn) {
     document.getElementById(btn).style.opacity = 0.2;
     switch (btn) {
         case "btn-green":
-            var x = document.getElementById("sGreen");
-            x.play();
+            document.getElementById("sGreen").play();
             break;
         case "btn-red":
-            var x = document.getElementById("sRed");
-            x.play();
+            document.getElementById("sRed").play();
+            break;
         case "btn-yellow":
-            var x = document.getElementById("sYellow");
-            x.play();
+            document.getElementById("sYellow").play();
+            break;
         case "btn-blue":
-            var x = document.getElementById("sRed");
-            x.play();
+            document.getElementById("sRed").play();
+            break;
     }
     setTimeout(function() {
         document.getElementById(btn).style.opacity = 1;
     }, 800);
 }
-
+//plays the computer generated sequence and buttons are disabled while the sequence is being played
 function playSequence() {
     document.getElementById("result").innerHTML = "Watch Out!";
-    console.log("playing sequnce");
+    //console.log("playing sequnce");
     document.getElementById("btn-green").disabled = true;
     document.getElementById("btn-red").disabled = true;
     document.getElementById("btn-yellow").disabled = true;
@@ -123,7 +133,7 @@ function playSequence() {
         }
     }, 1000);
 }
-
+//this function starts the actual game by generating the first question
 document.getElementById("start").addEventListener("click", function() {
     if (on_off) {
         document.getElementById("sIntro").play();
@@ -136,12 +146,12 @@ document.getElementById("start").addEventListener("click", function() {
             var integerRandom = getRandomInt(0, 4);
             compQuestion.push(btnIdArray[integerRandom]);
             setTimeout(playSequence, 3000);
-            console.log("computer: " + compQuestion);
+            //console.log("computer: " + compQuestion);
         }, 2900);
     }
 
 });
-
+//checks for winning condition and adds a new question in compQuestion
 function nextLevel() {
     if (counter === 20) {
         restart();
@@ -153,7 +163,7 @@ function nextLevel() {
             var integerRandom = getRandomInt(0, 4);
             compQuestion.push(btnIdArray[integerRandom]);
             setTimeout(playSequence, 3000);
-            console.log("computer: " + compQuestion);
+            //console.log("computer: " + compQuestion);
         }, 2900);
     } else {
         counter++;
@@ -163,30 +173,36 @@ function nextLevel() {
         var integerRandom = getRandomInt(0, 4);
         compQuestion.push(btnIdArray[integerRandom]);
         playSequence();
-        console.log("computer: " + compQuestion);
+        //console.log("computer: " + compQuestion);
     }
 }
-
+/**
+ * this function is called from html from onClick() listner
+ * plays the sound of button clicked
+ * flases the particular button clicked
+ * checks for correct or wrong answer
+ * displays progress message in html
+ * if wrong answer is clicked then it checks for strict mode status and performs accordingly 
+ */
 function buttonClick(btn) {
     switch (btn) {
         case "btn-green":
-            var x = document.getElementById("sGreen");
-            x.play();
+            document.getElementById("sGreen").play();
             break;
         case "btn-red":
-            var x = document.getElementById("sRed");
-            x.play();
+            document.getElementById("sRed").play();
+            break;
         case "btn-yellow":
-            var x = document.getElementById("sYellow");
-            x.play();
+            document.getElementById("sYellow").play();
+            break;
         case "btn-blue":
-            var x = document.getElementById("sRed");
-            x.play();
+            document.getElementById("sRed").play();
+            break;;
     }
     flashParticularButton(btn);
     userAnswer.push(btn);
     if (compQuestion[userCounter] === userAnswer[userCounter]) {
-        console.log(compQuestion[userCounter] === userAnswer[userCounter]);
+        //console.log(compQuestion[userCounter] === userAnswer[userCounter]);
         userCounter++;
         document.getElementById("result").innerHTML = "Wow Correct!";
         if (userAnswer.length === compQuestion.length) {
@@ -197,8 +213,7 @@ function buttonClick(btn) {
         }
     } else {
         setTimeout(function() {
-            var x = document.getElementById("sWrong");
-            x.play();
+            document.getElementById("sWrong").play();
         }, 1000);
         if (strict) {
             document.getElementById("result").innerHTML = "Opps! Start from the beginning!";
@@ -211,7 +226,7 @@ function buttonClick(btn) {
                 document.getElementById("strict").checked = true;
                 strict = true;
                 playSequence();
-                console.log("computer: " + compQuestion);
+                //console.log("computer: " + compQuestion);
             }, 4001);
         } else {
             userAnswer = [];
