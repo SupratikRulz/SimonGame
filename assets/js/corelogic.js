@@ -212,6 +212,10 @@ function buttonClick(btn) {
             }, 1000);
         }
     } else {
+        document.getElementById("btn-green").disabled = true;
+        document.getElementById("btn-red").disabled = true;
+        document.getElementById("btn-yellow").disabled = true;
+        document.getElementById("btn-blue").disabled = true;
         setTimeout(function() {
             document.getElementById("sWrong").play();
         }, 1000);
