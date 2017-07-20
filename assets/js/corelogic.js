@@ -14,6 +14,7 @@ document.getElementById("on-off").addEventListener("click", function() {
         on_off = false;
         document.getElementById("result").innerHTML = "Welcome! Press on PLAY button to start!";
     } else {
+        document.getElementById("sStart").play();
         gamebox.style.display = 'block';
         on_off = true;
         document.getElementById("result").innerHTML = "Welcome! Press on PLAY button to start!";
@@ -125,6 +126,7 @@ function playSequence() {
 
 document.getElementById("start").addEventListener("click", function() {
     if (on_off) {
+        document.getElementById("sIntro").play();
         document.getElementById("result").innerHTML = "Welcome! Press on PLAY button to start!";
         restart();
         counter = 1;
