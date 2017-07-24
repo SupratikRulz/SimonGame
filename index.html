@@ -7,58 +7,61 @@
 </head>
 
 <body>
-    <audio id="sGreen" src="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"></audio>
-    <audio id="sRed" src="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"></audio>
-    <audio id="sYellow" src="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"></audio>
-    <audio id="sBlue" src="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"></audio>
-    <audio id="sWrong" src="http://www.freesound.org/data/previews/331/331912_3248244-lq.mp3"></audio>
+    <audio id="sGreen" src="assets/music/sGreen.mp3"></audio>
+    <audio id="sRed" src="assets/music/sRed.mp3"></audio>
+    <audio id="sYellow" src="assets/music/sYellow.mp3"></audio>
+    <audio id="sBlue" src="assets/music/sBlue.mp3"></audio>
+    <audio id="sWrong" src="assets/music/sWrong.mp3"></audio>
     <audio id="sIntro" src="assets/music/intro.mp3"></audio>
     <audio id="sStart" src="assets/music/start.mp3"></audio>
     <div id="main-container">
-        <div id="heading">
-            Simon Game by Supratik Basu
+        <div id="result">
+            Turn game On to Start
         </div>
-        <div id="gamebox">
-            <div id="upper-half">
-                <button id="btn-green" class="btn" onclick="buttonClick('btn-green')"></button>
-                <button id="btn-red" class="btn" onclick="buttonClick('btn-red')"></button>
-            </div>
-            <div id="lower-half">
-                <button id="btn-yellow" class="btn" onclick="buttonClick('btn-yellow')"></button>
-                <button id="btn-blue" class="btn" onclick="buttonClick('btn-blue')"></button>
-            </div>
-            <div id="center-box">
-                <div id="counter">
-                    <font id="counter-dis" class="noselect">20</font>
+        <div id="container">
+            <div id="gamebox">
+                <div id="upper-half">
+                    <button id="btn-green" class="btn" onclick="buttonClick('btn-green')"></button>
+                    <button id="btn-red" class="btn" onclick="buttonClick('btn-red')"></button>
+                </div>
+                <div id="lower-half">
+                    <button id="btn-yellow" class="btn" onclick="buttonClick('btn-yellow')"></button>
+                    <button id="btn-blue" class="btn" onclick="buttonClick('btn-blue')"></button>
+                </div>
+                <div id="center-box">
+                    <div id="counter">
+                        <font id="counter-dis" class="noselect">20</font>
+                    </div>
                 </div>
             </div>
-
-            <div id="result">Welcome! Press on PLAY button to start!</div>
-        </div>
-        <div id="settings">
-            <div id="setting-head">OPTIONS</div>
-
-            <div id="start-div"><img id="start" src="assets/images/play.png" height="30px" width="30px" />
-                <p>Play from the Beginning</p>
-            </div>
-            <div id="power-btn">
-                <label class="switch">
-                    <input id="on-off" type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-                <p>Turn Game On/Off</p>
-            </div>
-            <div id="strict-mode" class="stict-mode-off strict-mode-on">
-                <label class="switch">
-                    <input id="strict" type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-                <p>STRICT mode On/Off</p>
+            <div id="settings">
+                <div id="start-div">
+                    <div id="start-icon">
+                        <img id="start" src="assets/images/play.png" height="30px" width="30px" />
+                    </div>
+                    <p>Play from the Beginning</p>
+                </div>
+                <div id="power-btn">
+                    <label class="switch">
+                        <input id="on-off" type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>Turn Game On/Off</p>
+                </div>
+                <div id="strict-mode" class="stict-mode-off strict-mode-on">
+                    <label class="switch">
+                        <input id="strict" type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>STRICT mode On/Off</p>
+                </div>
             </div>
         </div>
     </div>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script type="text/javascript" src="assets/js/corelogic.js"></script>
+    <script type="text/javascript" src="src/view.js"></script>
+    <script type="text/javascript" src="src/model.js"></script>
+    <script type="text/javascript" src="src/controller.js"></script>
 </body>
 
 </html>

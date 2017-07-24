@@ -25,8 +25,9 @@ button {
 }
 
 #result {
+    height: 50px;
     position: relative;
-    padding-top: 40%;
+    margin-top: 110px;
     text-align: center;
     font-size: 25px;
     color: whitesmoke;
@@ -44,16 +45,13 @@ button {
     padding-bottom: 1%;
 }
 
-#setting-head {
-    position: relative;
+#container {
     text-align: center;
-    font-size: 25px;
-    color: #e74c3c;
 }
 
 #gamebox {
+    margin-left: 10%;
     display: none;
-    padding-left: 20%;
     float: left;
     align-content: center;
     text-align: center;
@@ -66,18 +64,10 @@ button {
     border-top-left-radius: 100%;
 }
 
-#btn-green:hover {
-    background-color: #8AC249;
-}
-
 #btn-red {
     color: #F34236;
     background-color: #F34236;
     border-top-right-radius: 100%;
-}
-
-#btn-red:hover {
-    background-color: #FE5622;
 }
 
 #btn-yellow {
@@ -86,18 +76,10 @@ button {
     border-bottom-left-radius: 100%;
 }
 
-#btn-yellow:hover {
-    background-color: #FEEA3B;
-}
-
 #btn-blue {
     color: #3E50B4;
     background-color: #3E50B4;
     border-bottom-right-radius: 100%;
-}
-
-#btn-blue:hover {
-    background-color: #03A8F3;
 }
 
 .btn {
@@ -106,6 +88,7 @@ button {
     width: 200px;
     height: 200px;
     display: inline-block;
+    outline: none;
 }
 
 #center-box {
@@ -140,7 +123,8 @@ button {
 }
 
 #start {
-    padding-top: 30%;
+    margin-top: 0px;
+    padding-top: 0px;
     cursor: pointer;
 }
 
