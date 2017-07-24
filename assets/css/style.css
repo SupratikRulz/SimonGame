@@ -25,9 +25,8 @@ button {
 }
 
 #result {
-    height: 50px;
     position: relative;
-    margin-top: 110px;
+    margin-top: 0px;
     text-align: center;
     font-size: 25px;
     color: whitesmoke;
