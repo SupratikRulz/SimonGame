@@ -37,3 +37,23 @@ view.getDOMElement("start").addEventListener("click", function() {
         }, 1000);
     }
 });
+var flashParticularButton = function(btn) {
+    view.getDOMElement(btn).style.opacity = 0.2;
+    switch (btn) {
+        case "btn-green":
+            view.getDOMElement("sGreen").play();
+            break;
+        case "btn-red":
+            view.getDOMElement("sRed").play();
+            break;
+        case "btn-yellow":
+            view.getDOMElement("sYellow").play();
+            break;
+        case "btn-blue":
+            view.getDOMElement("sRed").play();
+            break;
+    }
+    setTimeout(function() {
+        view.getDOMElement(btn).style.opacity = 1;
+    }, 800);
+};
