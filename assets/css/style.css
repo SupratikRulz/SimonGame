@@ -25,6 +25,8 @@ button {
 }
 
 #result {
+    padding-top: 50px;
+    padding-bottom: 20px;
     position: relative;
     margin-top: 0px;
     text-align: center;
@@ -35,6 +37,7 @@ button {
 }
 
 #settings {
+    margin-top: 40px;
     margin-right: 10%;
     float: right;
     padding-left: 5%;

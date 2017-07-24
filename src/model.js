@@ -85,13 +85,12 @@ var controller = {
     },
     nextLevel: function() {
         if (controller.elements.counter === 20) {
-            controller.restart();
-            controller.elements.counter = 1;
             view.getDOMElement("counter").innerHTML = "WON";
-            view.getDOMElement("result").innerHTML = "Congrats! You Won!";
+            view.getDOMElement("result").innerHTML = "Congrats! You Won! Starting from the beginning!";
             setTimeout(function() {
                 controller.restart();
-                setTimeout(controller.playSequence, 3000);
+                view.getDOMElement("counter").innerHTML = "1";
+                controller.playSequence();
             }, 2900);
         } else {
             controller.elements.counter++;
