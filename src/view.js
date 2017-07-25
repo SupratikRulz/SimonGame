@@ -34,7 +34,9 @@ function buttonClick(btn) {
     flashParticularButton(btn);
     model.addUserAnswer(btn);
     if (model.getComputerQuestionAtIndex(model.getUserCounter()) === model.getUserAnswerAtIndex(model.getUserCounter())) {
-        model.setUserCounter(model.getUserCounter() + 1);
+        var count = model.getUserCounter();
+        count = count + 1;
+        model.setUserCounter(count);
         view.getDOMElement("result").innerHTML = model.getRandomCorrectAnswerExpression();
         if (model.getUserAnswerLength() === model.getComputerQuestionLength()) {
             view.getDOMElement("result").innerHTML = model.getRandomNextLevelExpression();
@@ -48,7 +50,9 @@ function buttonClick(btn) {
         view.getDOMElement("sWrong").play();
         if (model.getStrictStatus()) {
             view.getDOMElement("result").innerHTML = "Opps! Start from the beginning!";
-            setTimeout(model.restart, 500);
+            setTimeout(function() {
+                model.restart();
+            }, 500);
             setTimeout(function() {
                 view.getDOMElement("counter").innerHTML = model.getCounter();
                 view.getDOMElement("strict").checked = true;

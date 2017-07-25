@@ -70,7 +70,8 @@ SimonModel.prototype = {
         return this.compQuestion.length;
     },
     addComputerQuestion: function() {
-        this.compQuestion.push(this.btnIdArray[getRandomInt(0, 4)]);
+        var that = this;
+        this.compQuestion.push(this.btnIdArray[that.getRandomInt(0, 4)]);
         this.counter++;
     },
     getBtnIdArrayIndexValue: function(index) {
@@ -89,10 +90,10 @@ SimonModel.prototype = {
         return this.counter;
     },
     getRandomCorrectAnswerExpression: function() {
-        return this.correctAnswerExpression[getRandomInt(0, 10)];
+        return this.correctAnswerExpression[this.getRandomInt(0, 10)];
     },
     getRandomNextLevelExpression: function() {
-        return this.nextLevelExpression[getRandomInt(0, 8)];
+        return this.nextLevelExpression[this.getRandomInt(0, 8)];
     },
     restart: function() {
         this.userAnswer = [];
@@ -101,6 +102,7 @@ SimonModel.prototype = {
         this.on_off = true;
         this.counter = 1;
         this.userCounter = 0;
-        this.compQuestion.push(this.btnIdArray[getRandomInt(0, 4)]);
+        var that = this;
+        this.compQuestion.push(this.btnIdArray[that.getRandomInt(0, 4)]);
     }
 };
