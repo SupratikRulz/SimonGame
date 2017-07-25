@@ -1,3 +1,6 @@
+var getRandomInt = function(min, max) {
+    return Math.floor((Math.random() * max) + min);
+};
 var SimonModel = function() {
     this.btnIdArray = ["btn-green", "btn-red", "btn-yellow", "btn-blue"];
     this.compQuestion = [];
@@ -12,25 +15,65 @@ var SimonModel = function() {
 };
 
 SimonModel.prototype = {
-    setStateOfPowerButton: function(state) {
-        view.getDOMElement("power-btn").style.pointerEvents = state;
+    getStrictStatus: function() {
+        return this.strict;
     },
-    setPlayButtonState: function(state) {
-        view.getDOMElement("start").style.pointerEvents = state;
+    setStrictStatus: function(status) {
+        this.strict = status;
     },
-    setStateOfColourButtons: function(state) {
-        view.getDOMElement("btn-green").disabled = state;
-        view.getDOMElement("btn-red").disabled = state;
-        view.getDOMElement("btn-yellow").disabled = state;
-        view.getDOMElement("btn-blue").disabled = state;
+    getOn_OffStatus: function() {
+        return this.on_off;
     },
-    getRandomInt: function(min, max) {
-        return Math.floor((Math.random() * max) + min);
+    setOn_OffStatus: function(status) {
+        this.on_off = status;
     },
-    getCorrectAnswerExpression: function() {
+    getStartStatus: function() {
+        return this.start;
+    },
+    setStartStatus: function(status) {
+        this.start = status;
+    },
+    getUserAnswerAtIndex: function(index) {
+        return this.userAnswer[index];
+    },
+    getUserAnswerLength: function() {
+        return this.userAnswer.length;
+    },
+    setUserAnswerToEmptyArray: function() {
+        this.userAnswer = [];
+    },
+    addUserAnswer: function(element) {
+        this.userAnswer.push(element);
+    },
+    getComputerQuestionAtIndex: function(index) {
+        this.compQuestion[index];
+    },
+    getComputerQuestionLength: function() {
+        return this.compQuestion.length;
+    },
+    addComputerQuestion: function() {
+        this.compQuestion.push(this.btnIdArray[getRandomInt(0, 4)]);
+        this.counter++;
+    },
+    getBtnIdArrayIndexValue: function(index) {
+        return this.btnIdArray[index];
+    },
+    setUserCounter: function(value) {
+        this.userCounter = value;
+    },
+    getUserCounter: function() {
+        return this.userCounter;
+    },
+    setCounter: function(value) {
+        this.counter = value;
+    },
+    getCounter: function() {
+        return this.counter;
+    },
+    getRandomCorrectAnswerExpression: function() {
         return this.correctAnswerExpression[getRandomInt(0, 10)];
     },
-    getNextLevelExpression: function() {
+    getRandomNextLevelExpression: function() {
         return this.nextLevelExpression[getRandomInt(0, 8)];
     },
     restart: function() {
@@ -38,48 +81,13 @@ SimonModel.prototype = {
         this.compQuestion = [];
         this.start = false;
         this.on_off = true;
+        // this.counter = 0;
+        // this.addComputerQuestion();
         this.counter = 1;
         this.userCounter = 0;
-        this.compQuestion.push(this.btnIdArray[getRandomInt(0, 4)]);
-    },
-    playSequence: function() {
-        setStateOfPowerButton("none");
-        setPlayButtonState("none");
-        setStateOfColourButtons(true);
-        view.getDOMElement("result").innerHTML = "Watch out the sequence!";
-        setTimeout(function() {
-            setStateOfPowerButton("auto");
-            setPlayButtonState("auto");
-            setStateOfColourButtons(false);
-        }, this.compQuestion.length * 1000 + 1000);
-        var i = 0;
-        var sequence = setInterval(function() {
-            flashParticularButton(this.compQuestion[i]);
-            i++;
-            if (i >= this.compQuestion.length) {
-                clearInterval(sequence);
-                setTimeout(function() {
-                    view.getDOMElement("result").innerHTML = "Here you go!";
-                }, 1000);
-            }
-        }, 1000);
-    },
-    nextLevel: function() {
-        if (this.counter === 20) {
-            view.getDOMElement("counter").innerHTML = "WON";
-            view.getDOMElement("result").innerHTML = "Congrats! You Won! Starting from the beginning!";
-            setTimeout(function() {
-                restart();
-                view.getDOMElement("counter").innerHTML = "1";
-                playSequence();
-            }, 2900);
-        } else {
-            this.counter++;
-            this.userCounter = 0;
-            this.userAnswer = [];
-            view.getDOMElement("counter").innerHTML = this.counter;
-            this.compQuestion.push(this.btnIdArray[getRandomInt(0, 4)]);
-            playSequence();
-        }
+        console.log(this);
+        var ref = this;
+        this.compQuestion.push(ref.btnIdArray[getRandomInt(0, 4)]);
+        console.log(this.compQuestion);
     }
 };
