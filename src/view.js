@@ -1,9 +1,21 @@
+/**
+ * Author  : Supratik Basu
+ * Game    : SIMON GAME SIMULATION    
+ */
+
+
+/**
+ * returns the reference to DOM element
+ */
 var view = {
     getDOMElement: function(id) {
         return document.getElementById(id);
     }
 };
-
+/**
+ * performs action according to the button pressed
+ * @param {*} btn 
+ */
 function buttonClick(btn) {
     switch (btn) {
         case "btn-green":
@@ -52,6 +64,9 @@ function buttonClick(btn) {
         }
     }
 }
+/**
+ * initialize the event listeners on strict button, on-off button, play button
+ */
 var initEventListeners = function() {
 
     view.getDOMElement("strict").addEventListener("click", function() {

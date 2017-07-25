@@ -1,3 +1,8 @@
+/**
+ * Author  : Supratik Basu
+ * Game    : SIMON GAME SIMULATION    
+ */
+
 var flashParticularButton = function(btn) {
     view.getDOMElement(btn).style.opacity = 0.2;
     switch (btn) {
@@ -26,12 +31,14 @@ var setStateOfPowerButton = function(state) {
 var setPlayButtonState = function(state) {
     view.getDOMElement("start").style.pointerEvents = state;
 };
+
 var setStateOfColourButtons = function(state) {
     view.getDOMElement("btn-green").disabled = state;
     view.getDOMElement("btn-red").disabled = state;
     view.getDOMElement("btn-yellow").disabled = state;
     view.getDOMElement("btn-blue").disabled = state;
 };
+
 var playSequence = function() {
     setStateOfPowerButton("none");
     setPlayButtonState("none");
@@ -54,6 +61,7 @@ var playSequence = function() {
         }
     }, 1000);
 };
+
 var nextLevel = function() {
     if (model.getCounter() === 20) {
         view.getDOMElement("counter").innerHTML = "WON";
