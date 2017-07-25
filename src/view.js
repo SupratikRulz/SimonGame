@@ -47,12 +47,11 @@ function buttonClick(btn) {
             model.setUserAnswerToEmptyArray();
             model.setUserCounter(0);
             view.getDOMElement("result").innerHTML = "Wrong! Watch Closely";
-            controller.setStateOfPowerButton("none");
+            setStateOfPowerButton("none");
             setTimeout(playSequence, 500);
         }
     }
 }
-
 var initEventListeners = function() {
 
     view.getDOMElement("strict").addEventListener("click", function() {
@@ -82,7 +81,6 @@ var initEventListeners = function() {
         setPlayButtonState("none");
         if (model.getOn_OffStatus()) {
             view.getDOMElement("result").innerHTML = "Booting Wait...";
-            console.log(model);
             model.restart();
             view.getDOMElement("counter").innerHTML = "...";
             setStateOfColourButtons(true);

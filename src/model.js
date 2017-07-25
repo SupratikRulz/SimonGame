@@ -1,6 +1,3 @@
-var getRandomInt = function(min, max) {
-    return Math.floor((Math.random() * max) + min);
-};
 var SimonModel = function() {
     this.btnIdArray = ["btn-green", "btn-red", "btn-yellow", "btn-blue"];
     this.compQuestion = [];
@@ -15,6 +12,9 @@ var SimonModel = function() {
 };
 
 SimonModel.prototype = {
+    getRandomInt: function(min, max) {
+        return Math.floor((Math.random() * max) + min);
+    },
     getStrictStatus: function() {
         return this.strict;
     },
@@ -46,13 +46,13 @@ SimonModel.prototype = {
         this.userAnswer.push(element);
     },
     getComputerQuestionAtIndex: function(index) {
-        this.compQuestion[index];
+        return this.compQuestion[index];
     },
     getComputerQuestionLength: function() {
         return this.compQuestion.length;
     },
     addComputerQuestion: function() {
-        this.compQuestion.push(this.btnIdArray[getRandomInt(0, 4)]);
+        this.compQuestion.push(this.btnIdArray[this.getRandomInt(0, 4)]);
         this.counter++;
     },
     getBtnIdArrayIndexValue: function(index) {
@@ -71,23 +71,18 @@ SimonModel.prototype = {
         return this.counter;
     },
     getRandomCorrectAnswerExpression: function() {
-        return this.correctAnswerExpression[getRandomInt(0, 10)];
+        return this.correctAnswerExpression[this.getRandomInt(0, 10)];
     },
     getRandomNextLevelExpression: function() {
-        return this.nextLevelExpression[getRandomInt(0, 8)];
+        return this.nextLevelExpression[this.getRandomInt(0, 8)];
     },
     restart: function() {
         this.userAnswer = [];
         this.compQuestion = [];
         this.start = false;
         this.on_off = true;
-        // this.counter = 0;
-        // this.addComputerQuestion();
         this.counter = 1;
         this.userCounter = 0;
-        console.log(this);
-        var ref = this;
-        this.compQuestion.push(ref.btnIdArray[getRandomInt(0, 4)]);
-        console.log(this.compQuestion);
+        this.compQuestion.push(this.btnIdArray[this.getRandomInt(0, 4)]);
     }
 };

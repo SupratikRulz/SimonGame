@@ -33,34 +33,26 @@ var setStateOfColourButtons = function(state) {
     view.getDOMElement("btn-blue").disabled = state;
 };
 var playSequence = function() {
-    var ref = model;
-    console.log(ref);
     setStateOfPowerButton("none");
     setPlayButtonState("none");
     setStateOfColourButtons(true);
     view.getDOMElement("result").innerHTML = "Watch out the sequence!";
-    (function(ref) {
-        setTimeout(function() {
-            setStateOfPowerButton("auto");
-            setPlayButtonState("auto");
-            setStateOfColourButtons(false);
-        }, ref.getComputerQuestionLength() * 1000 + 1000);
-    })(ref);
+    setTimeout(function() {
+        setStateOfPowerButton("auto");
+        setPlayButtonState("auto");
+        setStateOfColourButtons(false);
+    }, model.getComputerQuestionLength() * 1000 + 1000);
     var i = 0;
-
-    var sequence = (function(ref) {
-        setInterval(function() {
-            console.log(ref.getComputerQuestionAtIndex(i));
-            flashParticularButton(ref.getComputerQuestionAtIndex(i));
-            i++;
-            if (i >= ref.getComputerQuestionLength()) {
-                clearInterval(sequence);
-                setTimeout(function() {
-                    view.getDOMElement("result").innerHTML = "Here you go!";
-                }, 1000);
-            }
-        }, 1000);
-    })(ref);
+    var sequence = setInterval(function() {
+        flashParticularButton(model.getComputerQuestionAtIndex(i));
+        i++;
+        if (i >= model.getComputerQuestionLength()) {
+            clearInterval(sequence);
+            setTimeout(function() {
+                view.getDOMElement("result").innerHTML = "Here you go!";
+            }, 1000);
+        }
+    }, 1000);
 };
 var nextLevel = function() {
     if (model.getCounter() === 20) {
