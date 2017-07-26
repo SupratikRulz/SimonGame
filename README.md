@@ -29,4 +29,3 @@ Simon is a classical memory game,it is basically a memory game where a user has 
 
 # How to play?
 Go to this <a href="https://supratikrulz.github.io"> link </a>.
-
