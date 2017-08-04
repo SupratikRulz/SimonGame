@@ -3,21 +3,30 @@
  * Game    : SIMON GAME SIMULATION    
  */
 
+/**
+ * returns the reference to DOM element
+ */
+var view = {
+    getDOMElement: function(id) {
+        return document.getElementById(id);
+    }
+};
+
 var flashParticularButton = function(btn) {
     view.getDOMElement(btn).style.opacity = 0.2;
     switch (btn) {
-        case "btn-green":
-            view.getDOMElement("sGreen").play();
-            break;
-        case "btn-red":
-            view.getDOMElement("sRed").play();
-            break;
-        case "btn-yellow":
-            view.getDOMElement("sYellow").play();
-            break;
-        case "btn-blue":
-            view.getDOMElement("sRed").play();
-            break;
+    case "btn-green":
+        view.getDOMElement("sGreen").play();
+        break;
+    case "btn-red":
+        view.getDOMElement("sRed").play();
+        break;
+    case "btn-yellow":
+        view.getDOMElement("sYellow").play();
+        break;
+    case "btn-blue":
+        view.getDOMElement("sRed").play();
+        break;
     }
     setTimeout(function() {
         view.getDOMElement(btn).style.opacity = 1;
@@ -62,12 +71,12 @@ var playSequence = function() {
     }, 1000);
 };
 
-var nextLevel = function() {
+var nextLevel = function() {// eslint-disable-line no-unused-vars 
     if (model.getCounter() === 20) {
         view.getDOMElement("counter").innerHTML = "WON";
         view.getDOMElement("result").innerHTML = "Congrats! You Won! Starting from the beginning!";
         setTimeout(function() {
-            restart();
+            model.restart();
             view.getDOMElement("counter").innerHTML = "1";
             playSequence();
         }, 2900);

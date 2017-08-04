@@ -1,7 +1,7 @@
 body {
     background: #212121;
     min-width: 222px;
-    min-height: 750px;
+    min-height: 250px;
 }
 
 p {
@@ -216,6 +216,8 @@ input:checked+.slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+@media only screen and (orientation: landscape) {}
 
 @media only screen and (max-width: 845px) {
     #gamebox {

@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/View.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">src/</a> View.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">11.54% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>6/52</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">11.54% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>6/52</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
+ * Author  : Supratik Basu
+ * Game    : SIMON GAME SIMULATION    
+ */
+var flashParticularButton = <span class="fstat-no" title="function not covered" >function(btn) {</span>
+<span class="cstat-no" title="statement not covered" >    view.getDOMElement(btn).style.opacity = 0.2;</span>
+<span class="cstat-no" title="statement not covered" >    switch (btn) {</span>
+        case "btn-green":
+<span class="cstat-no" title="statement not covered" >            view.getDOMElement("sGreen").play();</span>
+<span class="cstat-no" title="statement not covered" >            break;</span>
+        case "btn-red":
+<span class="cstat-no" title="statement not covered" >            view.getDOMElement("sRed").play();</span>
+<span class="cstat-no" title="statement not covered" >            break;</span>
+        case "btn-yellow":
+<span class="cstat-no" title="statement not covered" >            view.getDOMElement("sYellow").play();</span>
+<span class="cstat-no" title="statement not covered" >            break;</span>
+        case "btn-blue":
+<span class="cstat-no" title="statement not covered" >            view.getDOMElement("sRed").play();</span>
+<span class="cstat-no" title="statement not covered" >            break;</span>
+    }
+<span class="cstat-no" title="statement not covered" >    setTimeout(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        view.getDOMElement(btn).style.opacity = 1;</span>
+    }, 800);
+};
+&nbsp;
+var setStateOfPowerButton = <span class="fstat-no" title="function not covered" >function(state) {</span>
+<span class="cstat-no" title="statement not covered" >    view.getDOMElement("power-btn").style.pointerEvents = state;</span>
+};
+&nbsp;
+var setPlayButtonState = <span class="fstat-no" title="function not covered" >function(state) {</span>
+<span class="cstat-no" title="statement not covered" >    view.getDOMElement("start").style.pointerEvents = state;</span>
+};
+&nbsp;
+var setStateOfColourButtons = <span class="fstat-no" title="function not covered" >function(state) {</span>
+<span class="cstat-no" title="statement not covered" >    view.getDOMElement("btn-green").disabled = state;</span>
+<span class="cstat-no" title="statement not covered" >    view.getDOMElement("btn-red").disabled = state;</span>
+<span class="cstat-no" title="statement not covered" >    view.getDOMElement("btn-yellow").disabled = state;</span>
+<span class="cstat-no" title="statement not covered" >    view.getDOMElement("btn-blue").disabled = state;</span>
+};
+&nbsp;
+var playSequence = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >    setStateOfPowerButton("none");</span>
+<span class="cstat-no" title="statement not covered" >    setPlayButtonState("none");</span>
+<span class="cstat-no" title="statement not covered" >    setStateOfColourButtons(true);</span>
+<span class="cstat-no" title="statement not covered" >    view.getDOMElement("result").innerHTML = "Watch out the sequence!";</span>
+<span class="cstat-no" title="statement not covered" >    setTimeout(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        setStateOfPowerButton("auto");</span>
+<span class="cstat-no" title="statement not covered" >        setPlayButtonState("auto");</span>
+<span class="cstat-no" title="statement not covered" >        setStateOfColourButtons(false);</span>
+    }, model.getComputerQuestionLength() * 1000 + 1000);
+<span class="cstat-no" title="statement not covered" >    var i = 0;</span>
+<span class="cstat-no" title="statement not covered" >    var sequence = setInterval(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >        flashParticularButton(model.getComputerQuestionAtIndex(i));</span>
+<span class="cstat-no" title="statement not covered" >        i++;</span>
+<span class="cstat-no" title="statement not covered" >        if (i &gt;= model.getComputerQuestionLength()) {</span>
+<span class="cstat-no" title="statement not covered" >            clearInterval(sequence);</span>
+<span class="cstat-no" title="statement not covered" >            setTimeout(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                view.getDOMElement("result").innerHTML = "Here you go!";</span>
+            }, 1000);
+        }
+    }, 1000);
+};
+&nbsp;
+var nextLevel = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >    if (model.getCounter() === 20) {</span>
+<span class="cstat-no" title="statement not covered" >        view.getDOMElement("counter").innerHTML = "WON";</span>
+<span class="cstat-no" title="statement not covered" >        view.getDOMElement("result").innerHTML = "Congrats! You Won! Starting from the beginning!";</span>
+<span class="cstat-no" title="statement not covered" >        setTimeout(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >            restart();</span>
+<span class="cstat-no" title="statement not covered" >            view.getDOMElement("counter").innerHTML = "1";</span>
+<span class="cstat-no" title="statement not covered" >            playSequence();</span>
+        }, 2900);
+    } else {
+<span class="cstat-no" title="statement not covered" >        model.setUserCounter(0);</span>
+<span class="cstat-no" title="statement not covered" >        model.setUserAnswerToEmptyArray();</span>
+<span class="cstat-no" title="statement not covered" >        model.addComputerQuestion();</span>
+<span class="cstat-no" title="statement not covered" >        view.getDOMElement("counter").innerHTML = model.getCounter();</span>
+<span class="cstat-no" title="statement not covered" >        playSequence();</span>
+    }
+};</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Aug 03 2017 10:38:23 GMT+0530 (IST)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

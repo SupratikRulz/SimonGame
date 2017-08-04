@@ -7,5 +7,4 @@
  * initialize the SimonModel object
  * initialize the Event-Listeners
  */
-var model = new SimonModel();
-initEventListeners();
+var model = new SimonModel();// eslint-disable-line no-unused-vars 

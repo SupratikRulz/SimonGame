@@ -106,3 +106,4 @@ SimonModel.prototype = {
         this.compQuestion.push(this.btnIdArray[that.getRandomInt(0, 4)]);
     }
 };
+

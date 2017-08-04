@@ -5,13 +5,13 @@
 <head>
     <title>Simon Game created by Supratik</title>
     <link rel="icon" href="assets/images/simon.png">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=1, minimum-scale=0.5, maximum-scale=1.0">
     <!--
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"content="width=device-width, initial-scale=1.0">
     -->
 </head>
 
-<body>
+<body onload="initEventListeners()">
     <audio id="sGreen" src="assets/music/sGreen.mp3"></audio>
     <audio id="sRed" src="assets/music/sRed.mp3"></audio>
     <audio id="sYellow" src="assets/music/sYellow.mp3"></audio>
@@ -26,12 +26,12 @@
         <div id="container">
             <div id="gamebox">
                 <div id="upper-half">
-                    <button id="btn-green" class="btn" onclick="buttonClick( 'btn-green')"></button>
-                    <button id="btn-red" class="btn" onclick="buttonClick( 'btn-red')"></button>
+                    <button id="btn-green" class="btn"></button>
+                    <button id="btn-red" class="btn"></button>
                 </div>
                 <div id="lower-half">
-                    <button id="btn-yellow" class="btn" onclick="buttonClick( 'btn-yellow')"></button>
-                    <button id="btn-blue" class="btn" onclick="buttonClick( 'btn-blue')"></button>
+                    <button id="btn-yellow" class="btn"></button>
+                    <button id="btn-blue" class="btn"></button>
                 </div>
                 <div id="center-box">
                     <div id="counter">
@@ -48,14 +48,14 @@
                 </div>
                 <div id="power-btn">
                     <label class="switch">
-                        <input id="on-off" type="checkbox">
+                        <input id="on-off"type="checkbox">
                         <span class="slider round"></span>
                     </label>
                     <p>Turn Game On/Off</p>
                 </div>
                 <div id="strict-mode" class="stict-mode-off strict-mode-on">
                     <label class="switch">
-                        <input id="strict" type="checkbox">
+                        <input id="strict"type="checkbox">
                         <span class="slider round"></span>
                     </label>
                     <p>STRICT mode On/Off</p>
@@ -64,10 +64,12 @@
         </div>
     </div>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script type="text/javascript" src="src/View.js"></script>
-    <script type="text/javascript" src="src/Model.js"></script>
+    <!--<script type="text/javascript" src="src/main.js"></script>-->
     <script type="text/javascript" src="src/Controller.js"></script>
+    <script type="text/javascript" src="src/Model.js"></script>
+    <script type="text/javascript" src="src/View.js"></script>
     <script type="text/javascript" src="src/Start.js"></script>
+    <!--<script type="text/javascript" src="dist/bundle.js"></script>-->
 </body>
 
 </html>
